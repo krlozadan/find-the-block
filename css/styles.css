@@ -1,6 +1,7 @@
 html, body {
     margin : 0;
     height :100%;
+    background-color: darkgray;
 }
 
 button {
@@ -18,3 +19,47 @@ table {
     height: 90%;
     text-align: center;
 }
+
+td.icon {
+    font-family: "Font Awesome 5 Free";
+    color: darkgray;
+    background-color : lightgray;
+}
+
+td.icon-1::before {
+    content: "\f6d5";
+}
+td.icon-2::before {
+    content: "\f544";
+}
+td.icon-3::before {
+    content: "\f54c";
+}
+td.icon-4::before {
+    content: "\f135";
+}
+td.icon-5::before {
+    content: "\f521";
+}
+
+td.icon-1.highlight {
+    color: white;
+    background-color: #14CE8D;
+}
+td.icon-2.highlight {
+    color: white;
+    background-color: #FFBD19;
+}
+td.icon-3.highlight {
+    color: white;
+    background-color: #9412B2;
+}
+td.icon-4.highlight {
+    color: white;
+    background-color: #1166B2;
+}
+td.icon-5.highlight {
+    color: white;
+    background-color: #ED2F04;
+}
+
