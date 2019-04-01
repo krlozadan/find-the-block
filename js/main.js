@@ -1,5 +1,7 @@
 "use strict"
 
+import { Game } from "./game.js"
+
 document.addEventListener("DOMContentLoaded", (event) => { 
-    console.log("Ready");
+    const game = new Game();
 });
