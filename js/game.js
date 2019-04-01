@@ -11,8 +11,7 @@ export class Game {
     }
 
     startNewGame() {
-        console.log("START!!");
         this.gridManager.generateRandomIcons();
-        console.log(this.gridManager.grid);
+        this.uiManager.displayGrid(this.gridManager.grid);
     }
 }
