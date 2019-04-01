@@ -6,5 +6,6 @@ export class Game {
     constructor() {
         this.gridManager = new GridManager(10);
         this.gridManager.generateRandomIcons();
+        console.log(this.gridManager.grid);
     }
 }

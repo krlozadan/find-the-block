@@ -1,5 +1,7 @@
 "use strict"
 
+import { Cell } from "./cell.js";
+
 export class GridManager {
     constructor(n) {
         this.gridSize = n;
@@ -17,7 +19,7 @@ export class GridManager {
     generateRandomIcons() {
         for (let i = 0; i < this.gridSize ; i++) {
             for (let j = 0;j < this.gridSize; j++) {
-                this.grid[i][j] = Math.floor((Math.random() * 5) + 1);
+                this.grid[i][j] = new Cell(Math.floor((Math.random() * 5) + 1));
             }
         }
     }    
