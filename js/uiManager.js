@@ -9,9 +9,10 @@ export class UIManager {
 
     setupPixi() {
         const pixiContainer = document.getElementById("pixi-container");
-        console.log(pixiContainer.getBoundingClientRect());
         this.pixiApp = new PIXI.Application({ width : pixiContainer.offsetWidth, height : pixiContainer.offsetHeight });
         pixiContainer.appendChild(this.pixiApp.view);
+        this.pixiApp.renderer.autoResize = true;
+        window.onresize = () => this.pixiApp.renderer.resize(pixiContainer.offsetWidth, pixiContainer.offsetHeight);
     }
 
     displayGrid(grid) {
