@@ -31,6 +31,7 @@ export const ICONS = {
 export class Cell {
     
     constructor() {
+        // This prevents jhaving to create a Sprite upon each simulation
         this.icon = new PIXI.Sprite(PIXI.loader.resources[ICONS.WHITE.image].texture);
     }
 
@@ -41,9 +42,9 @@ export class Cell {
     generateIconNumber() {
         this.iconNumber = Math.floor((Math.random() * NUMBER_OF_ICONS) + 1);
         this.highlighted = false;      
-        
     }
 
+    // Set the testure depending on the icon number
     setTexture() {
         switch(this.iconNumber)  {
             case 1: {

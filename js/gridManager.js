@@ -3,6 +3,7 @@
 import { Cell } from "./cell.js";
 
 export class GridManager {
+    // Initializes the cells
     constructor(n) {
         this.gridSize = n;
         this.grid = Array(this.gridSize);
@@ -23,7 +24,7 @@ export class GridManager {
         }
     }    
 
-    // Here's the main algorithm
+    // Loop through the cells and check their siblings
     highlightIconBlocks() {
         for (let i = 0;i < this.grid.length;i++) {
             for (let j = 0;j < this.grid.length;j++) {
@@ -39,6 +40,7 @@ export class GridManager {
         }
     }
 
+    // Here's the main algorithm using recursion to get the siblings
     getCellSiblings(x, y) {
         const siblings = [];
         const currentCell = this.grid[x][y];

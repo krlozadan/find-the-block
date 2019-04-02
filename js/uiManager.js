@@ -4,19 +4,22 @@ import { ICONS } from "./cell.js";
 
 export class UIManager {
     constructor() {
+        // Disable the button until the texture cache is done
         this.startButton = document.getElementById("start-btn");
         this.startButton.disabled = true;
         this.startButton.innerHTML = "Loading...";
+        // Get a reference to the needed DOM elements
         this.pixiContainer = document.getElementById("pixi-container");
         this.gridTable = document.getElementById("grid");
         this.setupPixiContainer();
     }
 
+    // Initializes PIXI App
     setupPixiContainer() {
         this.pixiApp = new PIXI.Application({ width : this.pixiContainer.offsetWidth, height : this.pixiContainer.offsetHeight });
         this.pixiContainer.appendChild(this.pixiApp.view);
         this.pixiApp.renderer.autoResize = true;
-        this.pixiApp.renderer.backgroundColor = 0xD7DBDD;
+        this.pixiApp.renderer.backgroundColor = 0xffffff;
         window.onresize = () => this.pixiApp.renderer.resize(this.pixiContainer.offsetWidth, this.pixiContainer.offsetHeight);
         this.loadImagesToTextureCache();
     }
@@ -35,11 +38,13 @@ export class UIManager {
             .add(ICONS.PURPLE.image)
             .add(ICONS.PURPLE.imageHighlighted)
             .load(() => {
+                // When everything loads the button is activated
                 this.startButton.innerHTML = "Start";
                 this.startButton.disabled = false;
             });
     }
 
+    // Sets up the grid in the canvas
     initDisplay(grid) {
         const spaceBetweenIcons = this.pixiContainer.offsetHeight / grid.length;
         const leftMargin = (this.pixiContainer.offsetWidth - (spaceBetweenIcons * grid.length)) / 2;
@@ -53,6 +58,7 @@ export class UIManager {
         }
     }
 
+    // Updates the view to reflect the new results
     refreshDisplay(grid) {
         for (let i = 0; i < grid.length; i++) {
             for (let j = 0; j < grid.length; j++) {
