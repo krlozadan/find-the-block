@@ -3,6 +3,7 @@
 import { Cell } from "./cell.js";
 
 export class GridManager {
+    // Initializes the cells
     constructor(n) {
         this.gridSize = n;
         this.grid = Array(this.gridSize);
@@ -10,8 +11,7 @@ export class GridManager {
             const gridRow = Array(this.gridSize);
             this.grid[i] = gridRow;
             for (let j = 0;j < this.gridSize; j++) {
-                // Fill it with null to always use the same grid and prevent having to create a new grid every time
-                this.grid[i][j] = null;
+                this.grid[i][j] = new Cell();
             }
         }
     }
@@ -19,12 +19,12 @@ export class GridManager {
     generateRandomIcons() {
         for (let i = 0; i < this.gridSize ; i++) {
             for (let j = 0;j < this.gridSize; j++) {
-                this.grid[i][j] = new Cell(Math.floor((Math.random() * 5) + 1));
+                this.grid[i][j].generateIconNumber();
             }
         }
     }    
 
-    // Here's the main algorithm
+    // Loop through the cells and check their siblings
     highlightIconBlocks() {
         for (let i = 0;i < this.grid.length;i++) {
             for (let j = 0;j < this.grid.length;j++) {
@@ -40,6 +40,7 @@ export class GridManager {
         }
     }
 
+    // Here's the main algorithm using recursion to get the siblings
     getCellSiblings(x, y) {
         const siblings = [];
         const currentCell = this.grid[x][y];
