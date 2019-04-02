@@ -4,6 +4,14 @@ export class UIManager {
     constructor() {
         this.startButton = document.getElementById("start-btn");
         this.gridTable = document.getElementById("grid");
+        this.setupPixi();
+    }
+
+    setupPixi() {
+        const pixiContainer = document.getElementById("pixi-container");
+        console.log(pixiContainer.getBoundingClientRect());
+        this.pixiApp = new PIXI.Application({ width : pixiContainer.offsetWidth, height : pixiContainer.offsetHeight });
+        pixiContainer.appendChild(this.pixiApp.view);
     }
 
     displayGrid(grid) {
