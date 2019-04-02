@@ -11,7 +11,7 @@ export class GridManager {
             this.grid[i] = gridRow;
             for (let j = 0;j < this.gridSize; j++) {
                 // Fill it with null to always use the same grid and prevent having to create a new grid every time
-                this.grid[i][j] = null;
+                this.grid[i][j] = new Cell();
             }
         }
     }
@@ -19,7 +19,7 @@ export class GridManager {
     generateRandomIcons() {
         for (let i = 0; i < this.gridSize ; i++) {
             for (let j = 0;j < this.gridSize; j++) {
-                this.grid[i][j] = new Cell(Math.floor((Math.random() * 5) + 1));
+                this.grid[i][j].generateIconNumber();
             }
         }
     }    
