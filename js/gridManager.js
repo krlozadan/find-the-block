@@ -10,7 +10,6 @@ export class GridManager {
             const gridRow = Array(this.gridSize);
             this.grid[i] = gridRow;
             for (let j = 0;j < this.gridSize; j++) {
-                // Fill it with null to always use the same grid and prevent having to create a new grid every time
                 this.grid[i][j] = new Cell();
             }
         }
