@@ -7,7 +7,7 @@ export class Game {
     constructor(n) {
         this.gridManager = new GridManager(n);
         this.uiManager = new UIManager();
-        // this.uiManager.startButton.addEventListener("mouseup", () => this.startNewGame());
+        this.uiManager.startButton.addEventListener("mouseup", () => this.startNewGame());
     }
     
     startNewGame() {
